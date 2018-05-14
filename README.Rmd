@@ -1,0 +1,83 @@
+---
+output: rmarkdown::github_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# ripestat
+
+Query and Retrieve Data from the 'RIPEstat' 'API'
+
+## Description
+
+'RIPEstat' is a web-based interface that provides everything you ever 
+wanted to know about 'IP' address space, 'Autonomous System Numbers' ('ASNs'), and 
+related information for hostnames and countries in one place. Methods are provides to
+query and retrieve data from the 'RIPEstat' 'API'.
+    
+## What's Inside The Tin
+
+The following functions are implemented:
+
+- `get_announced_prefixes`:	Announced Prefixes
+- `get_country_resource_list`:	Country Resource List
+- `get_dns_chain`:	DNS Chain
+- `get_network_info`:	Network Info
+- `reverse_dns_ip`:	Reverse DNS IP
+- `whats_my_ip`:	What's My IP?
+
+## Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/ripestat")
+```
+
+```{r message=FALSE, warning=FALSE, error=FALSE, include=FALSE}
+options(width=120)
+```
+
+## Usage
+
+```{r message=FALSE, warning=FALSE, error=FALSE}
+library(ripestat)
+
+# current verison
+packageVersion("ripestat")
+
+```
+
+### Announced Prefixes
+
+```{r}
+str(get_announced_prefixes("AS3333")$data, 2)
+```
+
+### Country Resource List
+
+```{r}
+str(get_country_resource_list("MX")$data, 2)
+```
+
+### DNS Chain
+
+```{r}
+str(get_dns_chain("r-project.org")$data, 2)
+```
+
+### Network Info
+
+```{r}
+str(get_network_info("140.78.90.50")$data, 2)
+```
+
+### Reverse DNS IP
+
+```{r}
+str(reverse_dns_ip("193.0.6.139")$data, 2)
+```
+
+### What's My IP
+
+```{r eval=FALSE}
+whats_my_ip()
+```

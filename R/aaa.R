@@ -1,0 +1,1 @@
+RIPESTAT_PACKAGE_USER_AGENT <- "#rstats ripestat v0.1.0 — <https://github.com/hrbrmstr/ripestat>"
